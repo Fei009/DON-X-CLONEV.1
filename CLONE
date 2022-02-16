@@ -1,0 +1,77 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("DON X LUCKYBLOCK", "DarkTheme")
+local Tab = Window:NewTab("MAIN")
+local Section = Tab:NewSection("SWORD")
+
+Section:NewButton("Galactic Axe", " ", function()
+game.Workspace.Events.Fighting.GiveWeapon:FireServer("Galactic Axe")
+end)
+
+Section:NewButton("Energy Sword", " ", function()
+game.Workspace.Events.Fighting.GiveWeapon:FireServer("Energy Sword")
+end)
+
+Section:NewButton("Darkheart", " ", function()
+game.Workspace.Events.Fighting.GiveWeapon:FireServer("Darkheart")
+end)
+
+Section:NewButton("Diamon Sword", " ", function()
+game.Workspace.Events.Fighting.GiveWeapon:FireServer("Diamond Sword")
+end) 
+
+local Section = Tab:NewSection("GUN")
+
+Section:NewButton("HyperGun", " ", function()
+game.Workspace.Events.Fighting.GiveWeapon:FireServer("HyperGun")
+end) 
+
+Section:NewButton("GalaxyGun", " ", function()
+game.Workspace.Events.Fighting.GiveWeapon:FireServer("GalaxyGun")
+end) 
+
+Section:NewButton("Blaster", " ", function()
+game.Workspace.Events.Fighting.GiveWeapon:FireServer("Blaster")
+end) 
+
+Section:NewButton("AtomSphere", " ", function()
+game.Workspace.Events.Fighting.GiveWeapon:FireServer("AtomSphere")
+end) 
+
+local Tab = Window:NewTab("TELEPORT")
+local Section = Tab:NewSection("TELEPORT PLAYER")
+players = {}
+
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+   table.insert(players,v.Name)
+end
+
+
+Section:NewDropdown("Select Player", "", players , function(AllPlayers)
+    Select = AllPlayers
+end)
+
+
+Section:NewButton("Teleport", " ", function()
+    while wait () do
+    for i=1, 100 do
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Select].Character.HumanoidRootPart.CFrame 
+    end
+    end
+end)
+   
+
+
+Section:NewButton("Refresh", " ", function()
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+   table.insert(players,v.Name)
+    table.clear(players)
+end 
+end) 
+
+local Tab = Window:NewTab("SPEED")
+local Section = Tab:NewSection("SPEEDUP")
+
+Section:NewButton("SPEED", " ", function()
+while true do wait() game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100 end
+Walkspeed()
+end) 
